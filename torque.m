@@ -24,7 +24,7 @@ ns = 2^k-1;
 texture_image = load('earth');
 c = texture_image.X;
 c = imresize( c, [ns,ns], 'bicubic' );
-[xd,yd,zd]=ELLIPSOID(X(1),X(2),X(3),I1,I2,I3,ns);
+[xd,yd,zd]=ellipsoid(X(1),X(2),X(3),I1,I2,I3,ns);
 [md nd] = size(xd);
 subplot(1,2,1);
 subplot(1,2,2);
@@ -85,9 +85,9 @@ for t = 1:tmax
         colormap( texture_image.map );
         shading flat;
         axis( [-10 10 -10 10 -10 10] );
-        Xlabel('X');
-        Ylabel('Y');
-        Zlabel('Z');
+        xlabel('X');
+        ylabel('Y');
+        zlabel('Z');
         axis square;
 
         subplot(1,2,2);
@@ -106,8 +106,8 @@ for t = 1:tmax
         set(h_title, 'String', str_title );
         maxd = max( 1.1 * max( [abs(W); abs(L)] ), maxd );
         axis([-maxd maxd -maxd maxd -maxd maxd]);
-        Xlabel('X_bdy');
-        Ylabel('Y_bdy');
+        xlabel('X_bdy');
+        ylabel('Y_bdy');
         axis square;
         grid on;
         %view(3);

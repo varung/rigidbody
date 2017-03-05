@@ -27,7 +27,7 @@ stuff = zeros( N, 4 );
 k = 5;
 ns = 2^k-1; 
 c = hadamard(2^k);
-[xd,yd,zd]=ELLIPSOID(X(1),X(2),X(3),IA,IB,IC,ns);
+[xd,yd,zd]=ellipsoid(X(1),X(2),X(3),IA,IB,IC,ns);
 [md nd] = size(xd);
 for time = 1:N
     stuff(time,:) = Q;
@@ -61,16 +61,16 @@ for time = 1:N
     surf(x,y,z,c);
     colormap([1  1  0; 0  1  1])
     axis( [-10 10 -10 10 -10 10] );
-    Xlabel('X');
-    Ylabel('Y');
-    Zlabel('Z');
+    xlabel('X');
+    ylabel('Y');
+    zlabel('Z');
     axis square;
     subplot(1,2,2);
     Wbody = R' * W; % rotate from world to body coordinates
     line( Wbody(1), Wbody(2), Wbody(3), 'Marker','+', 'MarkerSize',10);
     axis([-5 5 -5 5 -5 5]);
-    Xlabel('X_bdy');
-    Ylabel('Y_bdy');
+    xlabel('X_bdy');
+    ylabel('Y_bdy');
     view(2);
     axis square;
     hold off
